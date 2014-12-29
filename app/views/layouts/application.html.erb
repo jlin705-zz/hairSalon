@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HairSolon</title>
+  <title>NacyHairSolon</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="container">
+		<ul class="nav nav-tabs">
+			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "Prices", prices_path %></li>
+			<li><%= link_to "Apointment", welcome_apointment_path %></li> 
+			<li><%= link_to "About Us", welcome_aboutus_path %></li>
+			<li><%= link_to "Contact Us", welcome_contactus_path %></li>
+		</ul>
 
-	<%= link_to "Home", root_path %>
-	<%= link_to "Prices", root_path %>
-	<%= link_to "Apointment", root_path %>
-	<%= link_to "About Us", root_path %>
-	<%= link_to "Contact Us", root_path %>
+		<%= yield %>
 
-	<%= yield %>
+	</div>
 
 </body>
 </html>
