@@ -16,9 +16,10 @@
 			<li><%= link_to "Contact Us", welcome_contactus_path %></li>
 			<% if current_user %>
 				
-				<li class="pull-right">Logged in as<strong><%=current_user.email%></strong></li>
-				<li class="pull-right"><%= link_to "Edit profile", edit_user_registration_path %>
-				<li class="pull-right"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+				<li class="pull-right"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>				
+				<li class="pull-right"><%= link_to "Edit profile", edit_user_registration_path %></li>
+
+				<li class="pull-right"><%= link_to "Hello, " + current_user.email, user_registration_path %></li>
 			<% else %>
 				<li class="pull-right"><%= link_to "Sign Up", new_user_registration_path %></li>
 				<li class="pull-right"><%= link_to "Login", new_user_session_path %></li>
