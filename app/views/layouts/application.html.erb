@@ -8,23 +8,43 @@
 </head>
 <body>
 	<div class="container">
-		<ul class="nav nav-tabs">
-			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "Prices", prices_path %></li>
-			<li><%= link_to "Appointment", welcome_apointment_path %></li> 
-			<li><%= link_to "About Us", welcome_aboutus_path %></li>
-			<li><%= link_to "Contact Us", welcome_contactus_path %></li>
-			<% if current_user %>
-				
-				<li class="pull-right"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>				
-				<li class="pull-right"><%= link_to "Edit profile", edit_user_registration_path %></li>
 
-				<li class="pull-right"><%= link_to "Hello, " + current_user.email, user_registration_path %></li>
-			<% else %>
-				<li class="pull-right"><%= link_to "Sign Up", new_user_registration_path %></li>
-				<li class="pull-right"><%= link_to "Login", new_user_session_path %></li>
-			<% end %>
-		</ul>
+		 <!-- NAVBAR
+    ================================================== -->
+    <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      <div class="container">
+
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "Prices", prices_path %></li>
+                <li><%= link_to "Appointment", welcome_apointment_path %></li>
+                <li><%= link_to "About Us", welcome_aboutus_path %></li>
+				<li><%= link_to "Contact Us", welcome_contactus_path %></li>
+                <% if current_user %>
+					<li class="pull-right"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>				
+					<li class="pull-right"><%= link_to "Edit profile", edit_user_registration_path %></li>
+
+					<li class="pull-right"><%= link_to "Hello, " + current_user.email, user_registration_path %></li>
+				<% else %>
+					<li class="pull-right"><%= link_to "Sign Up", new_user_registration_path %></li>
+					<li class="pull-right"><%= link_to "Login", new_user_session_path %></li>
+				<% end %>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+
+      </div> <!-- /.container -->
+    </div><!-- /.navbar-wrapper -->
 
 		<% if flash[:notice] %>
 			<div class="alert alert-success">
